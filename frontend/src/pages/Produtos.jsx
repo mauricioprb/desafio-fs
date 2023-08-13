@@ -1,32 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../css/global/global.css';
 import '../css/pages/produtos.css';
 import Header from '../components/Header';
 import CardProduto from '../components/CardProduto';
-import imagemCerveja from '../img/cerveja.jpg';
 import Footer from '../components/Footer';
+import useProdutos from '../hooks/useProdutos';
 
 const Produto = () => {
+    const allProdutos = useProdutos();
+    const [query, setQuery] = useState("");
+    const filteredProdutos = allProdutos.filter(produto => produto.titulo.toLowerCase().includes(query.toLowerCase()));
+
     return (
         <div>
-            <Header />
+            <Header onSearch={(q) => setQuery(q)} />
             <div className="container cards-produto">
-                <CardProduto imagem={imagemCerveja} titulo="Nome do Produto" preco="99,99" />
-                <CardProduto imagem={imagemCerveja} titulo="Nome do Produto" preco="99,99" />
-                <CardProduto imagem={imagemCerveja} titulo="Nome do Produto" preco="99,99" />
-                <CardProduto imagem={imagemCerveja} titulo="Nome do Produto" preco="99,99" />
-                <CardProduto imagem={imagemCerveja} titulo="Nome do Produto" preco="99,99" />
-                <CardProduto imagem={imagemCerveja} titulo="Nome do Produto" preco="99,99" />
-                <CardProduto imagem={imagemCerveja} titulo="Nome do Produto" preco="99,99" />
-                <CardProduto imagem={imagemCerveja} titulo="Nome do Produto" preco="99,99" />
-                <CardProduto imagem={imagemCerveja} titulo="Nome do Produto" preco="99,99" />
-                <CardProduto imagem={imagemCerveja} titulo="Nome do Produto" preco="99,99" />
-                <CardProduto imagem={imagemCerveja} titulo="Nome do Produto" preco="99,99" />
-                <CardProduto imagem={imagemCerveja} titulo="Nome do Produto" preco="99,99" />
-                <CardProduto imagem={imagemCerveja} titulo="Nome do Produto" preco="99,99" />
-                <CardProduto imagem={imagemCerveja} titulo="Nome do Produto" preco="99,99" />
-                <CardProduto imagem={imagemCerveja} titulo="Nome do Produto" preco="99,99" />
-                <CardProduto imagem={imagemCerveja} titulo="Nome do Produto" preco="99,99" />
+                {filteredProdutos.map(produto => (
+                    <CardProduto
+                        key={produto.id}
+                        imagem={produto.url_imagem}
+                        titulo={produto.titulo}
+                        preco={produto.preco}
+                    />
+                ))}
             </div>
             <Footer />
         </div>

@@ -3,19 +3,28 @@
 
 .card {
   box-shadow: 0 2px 4px 0 var(--cor-neutra4);
-  max-width: 260px;
+  max-width: 200px;
   font-family: 'Roboto', sans-serif;
   padding: 16px;
   border-radius: 6px;
 }
 
+.imagem-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .card img {
   margin-bottom: 16px;
+  height: 150px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .card h2 {
   margin-bottom: 12px;
-  font-size: 1.125rem;
+  font-size: 1.1rem;
 }
 
 .card button {
@@ -27,7 +36,7 @@
   text-align: center;
   cursor: pointer;
   width: 100%;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 500;
   border-radius: 6px;
 }
@@ -39,6 +48,6 @@
 .card-preco {
   color: var(--cor-neutra5);
   margin-bottom: 24px;
-  font-size: 1.125rem;
+  font-size: 1.1rem;
 
 }

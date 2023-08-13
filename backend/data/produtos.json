@@ -1,27 +1,47 @@
 [
   {
-    "titulo": "Controle de Vídeo Game",
-    "url_imagem": "backend/storage/images/produtos/controle.jpg",
-    "preco": 100.50
+    "titulo": "Shake YoPro",
+    "url_imagem": "https://images-na.ssl-images-amazon.com/images/I/41yd0KEuqiL._AC_SX184_.jpg",
+    "preco": 15.99
   },
   {
-    "titulo": "Controle de Vídeo Game",
-    "url_imagem": "backend/storage/images/produtos/controle.jpg",
-    "preco": 100.50
+    "titulo": "Gatorade",
+    "url_imagem": "https://images-na.ssl-images-amazon.com/images/I/41neCBWClZL._AC_SX184_.jpg",
+    "preco": 2.50
   },
   {
-    "titulo": "Controle de Vídeo Game",
-    "url_imagem": "backend/storage/images/produtos/controle.jpg",
-    "preco": 100.50
+    "titulo": "Campari",
+    "url_imagem": "https://images-na.ssl-images-amazon.com/images/I/31GIdWlewCL._AC_SX184_.jpg",
+    "preco": 28.00
   },
   {
-    "titulo": "Controle de Vídeo Game",
-    "url_imagem": "backend/storage/images/produtos/controle.jpg",
-    "preco": 100.50
+    "titulo": "Ketchup Heinz",
+    "url_imagem": "https://images-na.ssl-images-amazon.com/images/I/419EC6PpFXL._AC_SX184_.jpg",
+    "preco": 3.99
   },
   {
-    "titulo": "teste",
-    "url_imagem": "teste",
-    "preco": 100.50
+    "titulo": "Leite em Pó Ninho",
+    "url_imagem": "https://images-na.ssl-images-amazon.com/images/I/51ED6XenZhL._AC_SX184_.jpg",
+    "preco": 19.50
+  },
+  {
+    "titulo": "Red Label",
+    "url_imagem": "https://images-na.ssl-images-amazon.com/images/I/31PDxsriy9L._AC_SX184_.jpg",
+    "preco": 45.00
+  },
+  {
+    "titulo": "Café Gourmet",
+    "url_imagem": "https://images-na.ssl-images-amazon.com/images/I/416Gl2wCo+L._AC_SX184_.jpg",
+    "preco": 12.99
+  },
+  {
+    "titulo": "Sal para Churrasco",
+    "url_imagem": "https://images-na.ssl-images-amazon.com/images/I/410krOvaqOS._AC_SX184_.jpg",
+    "preco": 4.50
+  },
+  {
+    "titulo": "Mostarda",
+    "url_imagem": "https://m.media-amazon.com/images/I/61db08heHIL._AC_UL320_.jpg",
+    "preco": 2.99
   }
 ]

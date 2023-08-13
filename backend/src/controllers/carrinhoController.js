@@ -25,6 +25,17 @@ exports.adicionarProdutoCarrinho = async (req, res) => {
     }
 };
 
+exports.getQuantidadeCarrinho = async (req, res) => {
+    try {
+        const itens = await Carrinho.getTodosProdutos();
+        const quantidade = itens.length;
+        res.json({ quantidade });
+    } catch (error) {
+        res.status(500).json({ error: 'Erro ao obter a quantidade de itens do carrinho' });
+    }
+};
+
+
 exports.getTotalCarrinho = async (req, res) => {
     const itens = await Carrinho.getTodosProdutos();
     const total = itens.reduce((acc, item) => acc + (item.produto.preco * item.quantidade), 0);
