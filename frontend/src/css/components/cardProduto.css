@@ -1,0 +1,44 @@
+@import url(../utils/cores.css);
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+.card {
+  box-shadow: 0 2px 4px 0 var(--cor-neutra4);
+  max-width: 260px;
+  font-family: 'Roboto', sans-serif;
+  padding: 16px;
+  border-radius: 6px;
+}
+
+.card img {
+  margin-bottom: 16px;
+}
+
+.card h2 {
+  margin-bottom: 12px;
+  font-size: 1.125rem;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: var(--cor-branco);
+  background-color: var(--cor-secundaria1);
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 6px;
+}
+
+.card button:hover {
+  background-color: var(--cor-secundaria2);
+}
+
+.card-preco {
+  color: var(--cor-neutra5);
+  margin-bottom: 24px;
+  font-size: 1.125rem;
+
+}

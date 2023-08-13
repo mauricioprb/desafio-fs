@@ -3,6 +3,7 @@
 
 .header-bg {
   background-color: var(--cor-primaria1);
+  margin-bottom: 60px;
 }
 
 .header {
