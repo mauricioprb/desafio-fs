@@ -1,0 +1,92 @@
+/* reset.css */
+
+/* Remove margens e paddings padrão */
+html, body, div, h1, h2, h3, h4, h5, h6, p, ol, ul, li, dl, dt, dd, img, figure, figcaption, address, time, audio, video, canvas, iframe, details, summary, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* Remover list-style padrão de listas */
+ul, ol {
+  list-style: none;
+}
+
+/* Remover text-decoration padrão de links */
+a {
+  text-decoration: none;
+}
+
+/* Remover fontes padrão */
+body, table, th, td, input, select, textarea, button {
+  font-family: inherit;
+  font-size: 100%;
+}
+
+/* Remover outline padrão de elementos focados */
+:focus {
+  outline: none;
+}
+
+/* Remover resize padrão de textareas */
+textarea {
+  resize: none;
+}
+
+/* Remover borda padrão de inputs e buttons */
+input, button, select, textarea {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Remover aparência padrão de todos os inputs e botões */
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="button"], input[type="submit"], button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Definir box-sizing para border-box */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* Remover cor de fundo padrão de body */
+body {
+  background: none;
+}
+
+/* Remover texto sublinhado de abbr */
+abbr[title] {
+  text-decoration: none;
+}
+
+/* Remover borda padrão em imagens dentro de links */
+a img {
+  border: none;
+}
+
+/* Resetar tabelas */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Resetar campos de formulário para herdar font-family */
+input, textarea, select, button {
+  font-family: inherit;
+}
+
+/* Remover aparência padrão no Firefox */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
