@@ -4,13 +4,11 @@ import '../css/components/header.css';
 import logo from '../img/logo.svg';
 import iconeCarrinho from '../img/icons/carrinho.svg';
 import iconeBusca from '../img/icons/buscar.svg';
-import ModalCarrinho from './ModalCarrinho';
-import useCarrinho from '../hooks/useCarrinho';
 import useQuantidadeCarrinho from '../hooks/useQuantidadeCarrinho';
+import { Link } from 'react-router-dom';
 
 const Header = (props) => {
     const [searchQuery, setSearchQuery] = useState('');
-    const { isModalOpen, produtosCarrinho, openModal, closeModal, removerProduto } = useCarrinho();
     const quantidadeCarrinho = useQuantidadeCarrinho();
 
     return (
@@ -35,21 +33,15 @@ const Header = (props) => {
                         Buscar
                     </button>
                 </div>
-                <div className="header-carrinho" onClick={openModal}>
+                <Link to="/carrinho" className="header-carrinho">
                     <img src={iconeCarrinho} className="icone-carrinho" />
                     <p>Carrinho
                         {quantidadeCarrinho > 0 &&
                             <span className="contador-carrinho">{quantidadeCarrinho}</span>
                         }
                     </p>
-                </div>
+                </Link>
             </nav>
-            <ModalCarrinho
-                isOpen={isModalOpen}
-                onRequestClose={closeModal}
-                produtosCarrinho={produtosCarrinho}
-                onRemove={removerProduto}
-            />
         </header>
     );
 }

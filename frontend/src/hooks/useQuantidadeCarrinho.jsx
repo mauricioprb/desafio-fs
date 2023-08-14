@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-function useQuantidadeCarrinho() {
+const useQuantidadeCarrinho = () => {
   const [quantidadeCarrinho, setQuantidadeCarrinho] = useState(0);
 
   useEffect(() => {

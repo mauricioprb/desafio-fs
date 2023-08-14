@@ -18,6 +18,7 @@ const Produto = () => {
                 {filteredProdutos.map(produto => (
                     <CardProduto
                         key={produto.id}
+                        id={produto.id}
                         imagem={produto.url_imagem}
                         titulo={produto.titulo}
                         preco={produto.preco}

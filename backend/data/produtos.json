@@ -43,5 +43,10 @@
     "titulo": "Mostarda",
     "url_imagem": "https://m.media-amazon.com/images/I/61db08heHIL._AC_UL320_.jpg",
     "preco": 2.99
+  },
+  {
+    "titulo": "Shake YoPro",
+    "url_imagem": "https://images-na.ssl-images-amazon.com/images/I/41yd0KEuqiL._AC_SX184_.jpg",
+    "preco": 15.99
   }
 ]

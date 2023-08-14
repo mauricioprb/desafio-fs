@@ -1,8 +1,14 @@
 import React from "react";
 import "../css/components/cardProduto.css";
 import BotaoQuantidade from "./BotaoQuantidade";
+import useQuantidade from "../hooks/useQuantidade";
+import useAddProdutoCarrinho from "../hooks/useAddProdutoCarrinho";
 
-const CardProduto = ({ imagem, titulo, preco }) => {
+const CardProduto = ({ id, imagem, titulo, preco }) => {
+  const { quantidade, incrementar, decrementar } = useQuantidade(2);
+  const adicionarAoCarrinho = useAddProdutoCarrinho(id, quantidade);
+
+
   return (
     <div className="card">
       <div className="imagem-container">
@@ -10,8 +16,8 @@ const CardProduto = ({ imagem, titulo, preco }) => {
       </div>
       <h2>{titulo}</h2>
       <p className="card-preco">R$ {preco}</p>
-      <BotaoQuantidade quantidade="2" />
-      <p><button>Adicionar ao Carrinho</button></p>
+      <BotaoQuantidade quantidade={quantidade} incrementar={incrementar} decrementar={decrementar} />
+      <button onClick={adicionarAoCarrinho}>Adicionar ao Carrinho</button>
     </div>
   );
 }
