@@ -24,8 +24,8 @@ const useProdutosCarrinho = () => {
     // Chama o método uma vez para obter os dados iniciais
     fetchDados();
 
-    // Define um intervalo para buscar dados a cada 0.5 segundos
-    const interval = setInterval(fetchDados, 500);
+    // Define um intervalo para buscar dados a cada 0.3 segundos
+    const interval = setInterval(fetchDados, 300);
 
     // Limpa o intervalo quando o componente é desmontado
     return () => clearInterval(interval);
