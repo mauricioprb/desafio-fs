@@ -1,47 +1,41 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const useProdutosCarrinho = () => {
   const [produtos, setProdutos] = useState([]);
   const [total, setTotal] = useState(0);
 
+  const fetchDados = async () => {
+    try {
+      // Fetch produtos
+      const responseProdutos = await axios.get('http://localhost:3000/carrinho/produtos');
+      setProdutos(responseProdutos.data.produtos);
+
+      // Fetch total
+      const responseTotal = await axios.get('http://localhost:3000/carrinho/total');
+      setTotal(responseTotal.data.total);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
   useEffect(() => {
-    const fetchDados = async () => {
-      try {
-        // Fetch produtos
-        let response = await fetch('http://localhost:3000/carrinho/produtos');
-        let data = await response.json();
-        setProdutos(data.produtos);
-
-        // Fetch total
-        response = await fetch('http://localhost:3000/carrinho/total');
-        data = await response.json();
-        setTotal(data.total);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    // Chama o método uma vez para obter os dados iniciais
+    // Chama a função uma vez para obter os dados iniciais
     fetchDados();
-
-    // Define um intervalo para buscar dados a cada 0.3 segundos
-    const interval = setInterval(fetchDados, 300);
-
-    // Limpa o intervalo quando o componente é desmontado
-    return () => clearInterval(interval);
   }, []);
 
   const deleteProduto = async (id) => {
     try {
-      const response = await fetch(`http://localhost:3000/carrinho/${id}`, {
-        method: 'DELETE',
-      });
+      const response = await axios.delete(`http://localhost:3000/carrinho/${id}`);
 
-      if (response.ok) {
+      if (response.status === 200) {
         // Atualiza a lista de produtos após exclusão
         setProdutos((prevProdutos) => prevProdutos.filter(produto => produto.id !== id));
+
+        // Refetch dados após exclusão
+        fetchDados();
       } else {
-        console.error('Erro ao excluir produto:', await response.text());
+        console.error('Erro ao excluir produto:', response.data);
       }
     } catch (error) {
       console.error('Erro ao excluir produto:', error);
