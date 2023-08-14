@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const useQuantidadeCarrinho = () => {
   const [quantidadeCarrinho, setQuantidadeCarrinho] = useState(0);
@@ -6,9 +7,8 @@ const useQuantidadeCarrinho = () => {
   useEffect(() => {
     const fetchQuantidade = async () => {
       try {
-        const response = await fetch('http://localhost:3000/carrinho/quantidade');
-        const data = await response.json();
-        setQuantidadeCarrinho(data.quantidade);
+        const response = await axios.get('http://localhost:3000/carrinho/quantidade');
+        setQuantidadeCarrinho(response.data.quantidade);
       } catch (error) {
         console.error("Erro ao buscar a quantidade:", error);
       }
@@ -16,7 +16,7 @@ const useQuantidadeCarrinho = () => {
 
     fetchQuantidade();
 
-    const interval = setInterval(fetchQuantidade, 300);
+    const interval = setInterval(fetchQuantidade, 30000);
 
     return () => clearInterval(interval);
   }, []);
