@@ -5,17 +5,30 @@ const useProdutosCarrinho = () => {
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    // Fetch produtos
-    fetch('http://localhost:3000/carrinho/produtos')
-      .then(response => response.json())
-      .then(data => setProdutos(data.produtos))
-      .catch(error => console.error('Error fetching products:', error));
+    const fetchDados = async () => {
+      try {
+        // Fetch produtos
+        let response = await fetch('http://localhost:3000/carrinho/produtos');
+        let data = await response.json();
+        setProdutos(data.produtos);
 
-    // Fetch total
-    fetch('http://localhost:3000/carrinho/total')
-      .then(response => response.json())
-      .then(data => setTotal(data.total))
-      .catch(error => console.error('Error fetching total:', error));
+        // Fetch total
+        response = await fetch('http://localhost:3000/carrinho/total');
+        data = await response.json();
+        setTotal(data.total);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    // Chama o método uma vez para obter os dados iniciais
+    fetchDados();
+
+    // Define um intervalo para buscar dados a cada 0.5 segundos
+    const interval = setInterval(fetchDados, 500);
+
+    // Limpa o intervalo quando o componente é desmontado
+    return () => clearInterval(interval);
   }, []);
 
   const deleteProduto = async (id) => {
@@ -27,8 +40,6 @@ const useProdutosCarrinho = () => {
       if (response.ok) {
         // Atualiza a lista de produtos após exclusão
         setProdutos((prevProdutos) => prevProdutos.filter(produto => produto.id !== id));
-
-        // Você também pode querer atualizar o total aqui.
       } else {
         console.error('Erro ao excluir produto:', await response.text());
       }
