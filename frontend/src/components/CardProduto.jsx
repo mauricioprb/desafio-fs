@@ -5,7 +5,7 @@ import useQuantidade from "../hooks/useQuantidade";
 import useAddProdutoCarrinho from "../hooks/useAddProdutoCarrinho";
 
 const CardProduto = ({ id, imagem, titulo, preco }) => {
-  const { quantidade, incrementar, decrementar } = useQuantidade(2);
+  const { quantidade, incrementar, decrementar } = useQuantidade();
   const adicionarAoCarrinho = useAddProdutoCarrinho(id, quantidade);
 
 
