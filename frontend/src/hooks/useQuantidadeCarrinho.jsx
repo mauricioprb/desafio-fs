@@ -16,7 +16,7 @@ const useQuantidadeCarrinho = () => {
 
     fetchQuantidade();
 
-    const interval = setInterval(fetchQuantidade, 30000);
+    const interval = setInterval(fetchQuantidade, 300);
 
     return () => clearInterval(interval);
   }, []);
